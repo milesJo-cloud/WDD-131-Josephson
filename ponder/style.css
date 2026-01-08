@@ -1,0 +1,48 @@
+/* 1. Global Styles (The Game Environment) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e; /* Dark "Menu" Background */
+    color: #e94560;           /* High-contrast text */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* 2. Header (The Title Screen) */
+header {
+    text-align: center;
+    border-bottom: 2px solid #0f3460;
+    margin-bottom: 2rem;
+}
+
+/* 3. Cards (The Inventory Slots) */
+.card {
+    background: #16213e;
+    border: 1px solid #0f3460;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* 4. Progress Bar (The Health Bar) */
+.status-bar {
+    background: #0f3460;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress {
+    background: #e94560;
+    width: 65%; /* This represents your current XP */
+    height: 100%;
+}
+
+/* 5. Footer (The Credits) */
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #4e4e6a;
+}
