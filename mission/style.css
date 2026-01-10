@@ -1,0 +1,52 @@
+/* Overall page layout */
+body {
+    font-family: 'Times New Roman', serif;
+    max-width: 800px;
+    margin: 60px auto; /* Centers the "paper" on the screen */
+    line-height: 1.6;
+    color: #000;
+    padding: 20px;
+}
+
+/* The MISSION STATEMENT title */
+h1 {
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+/* The Blue University name */
+.subtitle {
+    text-align: center;
+    color: #006eb6;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-top: 1px solid #ddd; /* The line above the name */
+    padding-top: 10px;
+    margin-bottom: 40px;
+}
+
+/* Italicized bridge sentence */
+.instruction {
+    font-style: italic;
+    margin: 20px 0;
+}
+
+/* The numbered list spacing */
+ol li {
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+/* Centering the logo at the bottom */
+.footer-logo {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-logo img {
+    width: 180px;
+}
