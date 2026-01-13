@@ -3,18 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The offical mission statement of Brigham Young University-Idaho.">
-    <meta name="author" content="Your Name">
     <link rel="stylesheet" href="style.css">
     <title>BYU-Idaho Mission Statement</title>
+    <meta name="description" content="The offical mission statement of Brigham Young University-Idaho.">
+    <meta name="author" content="Your Name">
 </head>
 <body>
+
+    <select id="theme-select" onchange="changeTheme()">
+        <option>Choose Mode</option>
+        <option value="light">Light Theme</option>
+        <option value="dark">Dark Theme</option>    
+    </select>
 
     <header>
         <h1>Mission Statement</h1>
         <p class="subtitle">Brigham Young University-Idaho</p>
     </header>
+        </div>
+</head>
+<body>
     <main>
+</html>
+        <section class="mission-content">
         <p>
             Brigham Young University-Idaho was founded and is supported and guided by The Church of Jesus Christ of Latter-day Saints. 
             Its mission is to develop disciples of Jesus Christ who are leaders in their homes, the Church, and their communities.
@@ -28,10 +39,12 @@
             <li>Serving as many students as possible within resource constraints.</li>
             <li>Delivering education that is affordable for students and the Church.</li>
         </ol>
+        </section>
     </main>
     
     <footer class="footer-logo">
         <img src="picture/BYUI.png" alt="BYU-Idaho Logo" class="logo">
     </footer>
+    <script src="mission.js" defer></script>
 </body>
 </html>
