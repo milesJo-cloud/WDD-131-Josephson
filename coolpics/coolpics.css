@@ -1,0 +1,80 @@
+/* --- MOBILE FIRST STYLES (Default) --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #ddd; /* Light grey background like screenshot */
+    text-align: center;
+}
+
+header {
+    background-color: #3b82f6; /* Blue header */
+    color: white;
+    padding: 1rem;
+}
+
+/* Menu logic */
+#menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: none; /* Hidden on mobile as per instructions */
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Gallery - Mobile (1 column) */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Image Requirements */
+.gallery img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Makes them square */
+    object-fit: cover;    /* Keeps proper aspect ratio within the square */
+    border: 5px solid white; /* Matches the screenshot look */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+/* --- TABLET VIEW (2 columns) --- */
+@media (min-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- DESKTOP VIEW (3 columns) --- */
+@media (min-width: 1000px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* Hide the 'Menu' text and show actual links */
+    #menu-button {
+        display: none;
+    }
+
+    .nav-links {
+        display: block;
+    }
+}
