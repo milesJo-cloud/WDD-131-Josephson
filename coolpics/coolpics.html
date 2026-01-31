@@ -6,13 +6,15 @@
     <title>Cool Pics</title>
     <meta name="description" content="A responsive gallery page demonstration.">
     <link rel="stylesheet" href="coolpics.css">
+    <script src="coolpics.js" defer></script>
 </head>
+
 <body>
     <header>
         <h1>Cool Pics 📷</h1>
         <nav>
-            <button id="menu-button">Menu</button>
-            <ul class="nav-links">
+            <button id="menu-button" aria-label="Open Menu">☰</button>
+            <ul class="nav-links hide">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">People</a></li>
                 <li><a href="#">Places</a></li>
@@ -25,20 +27,25 @@
     <main>
         <h2>Current Work</h2>
         <section class="gallery">
-            <img src="mountain.jpg" alt="Sample Image 1">
-            <img src="mountain.jpg" alt="Sample Image 2">
-            <img src="mountain.jpg" alt="Sample Image 3">
-            <img src="mountain.jpg" alt="Sample Image 4">
-            <img src="mountain.jpg" alt="Sample Image 5">
-            <img src="mountain.jpg" alt="Sample Image 6">
-            <img src="mountain.jpg" alt="Sample Image 7">
-            <img src="mountain.jpg" alt="Sample Image 8">
-            <img src="mountain.jpg" alt="Sample Image 9">
+            <img src="mountain.jpg" alt="Sample Image 1" class="gallery-img">
+            <img src="mountain.jpg" alt="Sample Image 2" class="gallery-img">
+            <img src="mountain.jpg" alt="Sample Image 3" class="gallery-img">
+            <img src="mountain.jpg" alt="Sample Image 4" class="gallery-img">
+            <img src="mountain.jpg" alt="Sample Image 5" class="gallery-img">
+            <img src="mountain.jpg" alt="Sample Image 6" class="gallery-img">
+            <img src="mountain.jpg" alt="Sample Image 7" class="gallery-img">
+            <img src="mountain.jpg" alt="Sample Image 8" class="gallery-img">
+            <img src="mountain.jpg" alt="Sample Image 9" class="gallery-img">
         </section>
+
+    <div class="modal hide" aria-hidden="true"> <span class="close" aria-label="Close modal">&times;</span>
+        <img src="mountain.jpg" alt="Expanded image" class="modal-img"> 
+    </div>
+
     </main>
 
     <footer>
-        <p>&copy;2026 Not a real site 🙂</p>
+        <p>&copy; 2026 Not a real site 🙂</p>
     </footer>
 </body>
 </html>

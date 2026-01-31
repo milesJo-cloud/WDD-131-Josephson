@@ -1,80 +1,135 @@
-/* --- MOBILE FIRST STYLES (Default) --- */
+/* --- BASE STYLES --- */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #ddd; /* Light grey background like screenshot */
+    background-color: #ddd;
     text-align: center;
 }
 
 header {
-    background-color: #3b82f6; /* Blue header */
+    background-color: #3b82f6;
     color: white;
     padding: 1rem;
 }
 
-/* Menu logic */
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
 #menu-button {
     background: none;
     border: none;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     cursor: pointer;
 }
 
 .nav-links {
-    display: none; /* Hidden on mobile as per instructions */
+    display: none;
     list-style: none;
     padding: 0;
+    flex-direction: column;
+    background-color: #3b82f6;
+    width: 100%;
+}
+.nav-links:not(.hide) {
+    display: flex;
+}
+
+.hide {
+    display: none;
 }
 
 .nav-links li {
-    display: inline;
-    margin: 0 10px;
+    display: block;
+    margin: 10px 0;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
+    font-size: 1.1rem;
 }
 
-/* Gallery - Mobile (1 column) */
+/* --- GALLERY --- */
 .gallery {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
     padding: 20px;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: auto;
 }
 
-/* Image Requirements */
-.gallery img {
+.gallery-img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Makes them square */
-    object-fit: cover;    /* Keeps proper aspect ratio within the square */
-    border: 5px solid white; /* Matches the screenshot look */
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 5px solid white;
+    cursor: pointer;
 }
 
-/* --- TABLET VIEW (2 columns) --- */
+/* --- TABLET --- */
 @media (min-width: 600px) {
     .gallery {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* --- DESKTOP VIEW (3 columns) --- */
+/* --- DESKTOP --- */
 @media (min-width: 1000px) {
-    .gallery {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    /* Hide the 'Menu' text and show actual links */
     #menu-button {
         display: none;
     }
 
     .nav-links {
-        display: block;
+        display: flex;
+        gap: 1rem;
     }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .nav-links.hide {
+        display: flex;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- MODAL --- */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 5px solid white;
+}
+
+.hide {
+    display: none;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
 }
