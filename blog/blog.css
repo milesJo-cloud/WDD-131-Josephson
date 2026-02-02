@@ -1,0 +1,114 @@
+/* ---------- CSS RESET ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- BASE STYLES ---------- */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+  color: #222;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  border-bottom: 2px solid #e6a15c;
+  padding: 1rem;
+  text-align: center;
+}
+
+.site-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #a00000;
+  font-weight: 600;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  text-decoration: underline;
+}
+
+/* ---------- GRID LAYOUT ---------- */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* ---------- REVIEW CARD ---------- */
+.review {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+}
+
+/* ---------- META INFO ---------- */
+.meta {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.rating {
+  color: #f2a900;
+  font-size: 1.1rem;
+}
+
+/* ---------- REVIEW CONTENT ---------- */
+.review-body h2 {
+  color: #a00000;
+  margin-bottom: 1rem;
+}
+
+.review-body img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.description {
+  font-size: 1rem;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  border-top: 2px solid #e6a15c;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- RESPONSIVE: LARGER DEVICES ---------- */
+@media (min-width: 768px) {
+  .review {
+    grid-template-columns: 200px 1fr;
+    align-items: start;
+  }
+
+  .meta {
+    text-align: right;
+    border-right: 1px solid #ddd;
+    padding-right: 1rem;
+  }
+}
