@@ -20,7 +20,7 @@
       <div class="magnetic-strip"></div>
       <div class="field cvc-field">
         <label for="cvc">CVC/CVV</label>
-        <input type="text" id="cvc" placeholder="XXX" />
+        <input type="text" id="cvc" placeholder="XXX" maxlength="4" />
       </div>
     </div>
 
@@ -31,7 +31,7 @@
 
       <div class="field" id="cardNumber">
         <label for="number">CARD NUMBER</label>
-        <input type="text" id="number" placeholder="1234 5678 9101 1020" />
+        <input type="text" id="number" placeholder="1234 5678 9101 1020" maxlength="19" />
       </div>
 
       <div class="field" id="cardHolder">
@@ -42,8 +42,8 @@
       <div class="field" id="cardExpiration">
         <label id="expirationDate">EXPIRATION</label>
         <div class="exp-row">
-          <input type="text" id="month" name="expMonth" placeholder="MM" aria-labelledby="expirationDate" />
-          <input type="text" id="year" name="expYear" placeholder="YY" aria-labelledby="expirationDate" />
+          <input type="text" id="month" name="expMonth" placeholder="MM" maxlength="2" aria-labelledby="expirationDate" />
+          <input type="text" id="year" name="expYear" placeholder="YY" maxlength="2" aria-labelledby="expirationDate" />
         </div>
       </div>
     </form>
@@ -56,6 +56,3 @@
 <script src="card.js"></script>
 </body>
 </html>
-
-
-
