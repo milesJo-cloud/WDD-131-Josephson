@@ -1,0 +1,329 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Share Tech Mono', monospace;
+  overflow: hidden;
+}
+
+/* Scanline BG */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0,0,0,0.18) 3px,
+      rgba(0,0,0,0.18) 4px
+    ),
+    radial-gradient(ellipse 80% 70% at 50% 50%, #1a0505 0%, #080808 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  width: 360px;
+  background: #0e0e0e;
+  border: 1px solid #2a2a2a;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 60px rgba(200, 0, 0, 0.12),
+    inset 0 0 40px rgba(0,0,0,0.5);
+  z-index: 1;
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  overflow: hidden;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Top bar */
+.top-bar {
+  background: #c00;
+  padding: 5px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.top-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(0,0,0,0.1) 8px, rgba(0,0,0,0.1) 9px);
+}
+.top-bar-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.9);
+  position: relative;
+}
+.top-bar-num {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.1em;
+  position: relative;
+}
+
+/* Image */
+.card-image {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  background: #111;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(40%) contrast(1.1) brightness(0.75);
+  transition: filter 0.5s ease, transform 0.6s ease;
+}
+.card:hover .card-image img {
+  transform: scale(1.03);
+  filter: grayscale(20%) contrast(1.15) brightness(0.85);
+}
+
+/* Red vignette on image */
+.card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, transparent 35%, rgba(14,14,14,0.85) 85%, #0e0e0e 100%),
+    radial-gradient(ellipse at 50% 100%, rgba(180,0,0,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Umbrella watermark */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Name block */
+.name-block {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0 18px;
+}
+.char-title {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: #c00;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.char-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 30px rgba(200,0,0,0.4), 2px 2px 0 rgba(0,0,0,0.8);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, #c00, rgba(200,0,0,0.2), transparent);
+  margin: 0 18px;
+}
+
+/* Stats section */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 14px 18px 10px;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.stat-cell {
+  padding: 6px 0;
+}
+.stat-cell:nth-child(odd) {
+  border-right: 1px solid #1a1a1a;
+  padding-right: 14px;
+}
+.stat-cell:nth-child(even) {
+  padding-left: 14px;
+}
+
+.stat-key {
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.stat-val {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #ddd;
+  letter-spacing: 0.03em;
+}
+
+/* Health section */
+.health-section {
+  padding: 12px 18px 10px;
+}
+
+.health-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+.health-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  color: #666;
+  text-transform: uppercase;
+}
+.health-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  transition: color 0.3s;
+}
+.health-num.high  { color: #4caf50; }
+.health-num.mid   { color: #ff9800; }
+.health-num.low   { color: #f44336; }
+.health-num.dead  { color: #c00; }
+
+.health-track {
+  height: 3px;
+  background: #1a1a1a;
+  position: relative;
+}
+.health-fill {
+  height: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s;
+  width: 100%;
+}
+.health-fill.high  { background: #4caf50; box-shadow: 0 0 6px rgba(76,175,80,0.6); }
+.health-fill.mid   { background: #ff9800; box-shadow: 0 0 6px rgba(255,152,0,0.6); }
+.health-fill.low   { background: #f44336; box-shadow: 0 0 8px rgba(244,67,54,0.7); }
+.health-fill.dead  { background: #c00;    box-shadow: 0 0 10px rgba(200,0,0,0.5); }
+
+/* Status message */
+.status-msg {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: #c00;
+  text-transform: uppercase;
+  margin-top: 5px;
+  min-height: 14px;
+  animation: blink 1.2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Actions */
+.card-actions {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid #1a1a1a;
+}
+
+.btn {
+  flex: 1;
+  padding: 13px 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background 0.15s;
+}
+.btn:hover::after { background: rgba(255,255,255,0.05); }
+.btn:active { transform: scale(0.98); }
+
+.btn-attacked {
+  background: #1a0000;
+  color: #ff4444;
+  border-right: 1px solid #2a2a2a;
+}
+.btn-attacked:hover { background: #220000; }
+
+.btn-levelup {
+  background: #0d1a00;
+  color: #88cc44;
+}
+.btn-levelup:hover { background: #112200; }
+
+.btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Hit / level flash overlay */
+.overlay-flash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 30;
+}
+.overlay-flash.red   { background: rgba(200,0,0,0.3); }
+.overlay-flash.green { background: rgba(80,200,0,0.15); }
+.overlay-flash.show {
+  animation: flashOut 0.4s ease-out forwards;
+}
+@keyframes flashOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Bottom bar */
+.bottom-bar {
+  background: #0a0a0a;
+  padding: 5px 18px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #1a1a1a;
+}
+.bottom-text {
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  color: #333;
+  text-transform: uppercase;
+}

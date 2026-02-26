@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leon S. Kennedy — Resident Evil: Requiem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="card" id="card">
+  <div class="overlay-flash red"   id="flashRed"></div>
+  <div class="overlay-flash green" id="flashGreen"></div>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <span class="top-bar-label">D.S.O. AGENT — CLASSIFIED</span>
+    <span class="top-bar-num">FILE #LSK-001</span>
+  </div>
+
+  <!-- Image -->
+  <div class="card-image">
+    <svg class="watermark" viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="3"/>
+      <line x1="50" y1="2" x2="50" y2="98" stroke="white" stroke-width="3"/>
+      <line x1="2" y1="50" x2="98" y2="50" stroke="white" stroke-width="3"/>
+      <line x1="15" y1="15" x2="85" y2="85" stroke="white" stroke-width="3"/>
+      <line x1="85" y1="15" x2="15" y2="85" stroke="white" stroke-width="3"/>
+    </svg>
+
+    <img
+      src="LeonS.Kennedy.jpg"
+      alt="Leon S. Kennedy"
+      onerror="this.style.background='#1a0505'"
+    />
+    <div class="name-block">
+      <div class="char-title">Resident Evil: Requiem</div>
+      <div class="char-name" id="charName">Leon S. Kennedy</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-cell">
+      <div class="stat-key">Class</div>
+      <div class="stat-val" id="charClass">DSO Agent</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-key">Level</div>
+      <div class="stat-val" id="charLevel">50</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-key">Affiliation</div>
+      <div class="stat-val">D.S.O.</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-key">Status</div>
+      <div class="stat-val" id="charStatus">Active Duty</div>
+    </div>
+  </div>
+
+  <!-- Health -->
+  <div class="health-section">
+    <div class="health-header">
+      <span class="health-label">Vitality</span>
+      <span class="health-num high" id="healthNum">100 / 100</span>
+    </div>
+    <div class="health-track">
+      <div class="health-fill high" id="healthFill"></div>
+    </div>
+    <div class="status-msg" id="statusMsg" style="display:none;"></div>
+  </div>
+
+  <!-- Actions -->
+  <div class="card-actions">
+    <button class="btn btn-attacked" id="btnAttacked" onclick="leon.attacked()">[ ATTACKED ]</button>
+    <button class="btn btn-levelup"  id="btnLevelUp"  onclick="leon.levelUp()">[ LEVEL UP ]</button>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="bottom-bar">
+    <span class="bottom-text">RE: REQUIEM — FEB 27, 2026</span>
+    <span class="bottom-text">CAPCOM CO., LTD.</span>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
