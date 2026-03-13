@@ -5,37 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RecipeBook</title>
 
-  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="RecipeBook">
   <meta property="og:description" content="Find delicious recipes for every occasion.">
   <meta property="og:url" content="Your URL">
   <meta property="og:image" content="social-preview-image.png">
 
-  <!-- X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="RecipeBook">
   <meta name="twitter:description" content="Find delicious recipes for every occasion.">
   <meta name="twitter:image" content="social-preview-image.png">
 
-  <!-- Favicon -->
   <link rel="icon" href="/favicon.ico">
 
-  <!-- Apple Touch Icon (iOS home screen) -->
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
   <link rel="stylesheet" href="recipe.css">
+  <script src="recipe.js" defer></script>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="logo">
       <img src="images/recipe-book.png" alt="RecipeBook logo icon">
       <span class="logo-text">R<span class="logo-small">ecipe</span>B<span class="logo-small">ook</span></span>
     </div>
 
-    <!-- Search -->
     <div class="search-bar">
       <input type="search" placeholder="Find a recipe" aria-label="Find a recipe">
       <button type="button" aria-label="Search">
@@ -44,194 +39,13 @@
     </div>
   </header>
 
-  <!-- Main content -->
-  <main>
+  <main></main>
 
-    <!-- Apple Crisp -->
-    <article class="recipe-card">
-      <div class="card-image-wrap">
-        <img src="images/apple-crisp.jpg" alt="Apple Crisp served with vanilla ice cream">
-        <span class="tag">dessert</span>
-      </div>
-      <div class="card-info">
-        <span class="tag tag-inline">dessert</span>
-        <h2 class="recipe-title">Apple Crisp</h2>
-        <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star-empty">☆</span>
-        </span>
-        <p class="recipe-description">
-          This apple crisp recipe is a simple yet delicious fall dessert that's great served warm with vanilla ice cream.
-        </p>
-      </div>
-    </article>
-
-    <!-- Black Beans and Rice -->
-    <article class="recipe-card">
-      <div class="card-image-wrap">
-        <img src="images/black-beans-and-rice.jpg" alt="Black beans and rice">
-        <span class="tag">dinner</span>
-      </div>
-      <div class="card-info">
-        <span class="tag tag-inline">dinner</span>
-        <h2 class="recipe-title">Black Beans and Rice</h2>
-        <span class="rating" role="img" aria-label="Rating: 5 out of 5 stars">
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-        </span>
-        <p class="recipe-description">
-          A hearty and flavorful Cuban-inspired dish made with seasoned black beans served over fluffy white rice.
-        </p>
-      </div>
-    </article>
-
-    <!-- Chicken Curry -->
-    <article class="recipe-card">
-      <div class="card-image-wrap">
-        <img src="images/chicken-curry.webp" alt="Chicken curry">
-        <span class="tag">dinner</span>
-      </div>
-      <div class="card-info">
-        <span class="tag tag-inline">dinner</span>
-        <h2 class="recipe-title">Chicken Curry</h2>
-        <span class="rating" role="img" aria-label="Rating: 5 out of 5 stars">
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-        </span>
-        <p class="recipe-description">
-          A rich and aromatic chicken curry simmered in a spiced tomato-coconut sauce, perfect with naan or rice.
-        </p>
-      </div>
-    </article>
-
-    <!-- Chocolate Chip Cookies -->
-    <article class="recipe-card">
-      <div class="card-image-wrap">
-        <img src="images/chocolate-chip-cookies.jpg" alt="Chocolate chip cookies">
-        <span class="tag">dessert</span>
-      </div>
-      <div class="card-info">
-        <span class="tag tag-inline">dessert</span>
-        <h2 class="recipe-title">Chocolate Chip Cookies</h2>
-        <span class="rating" role="img" aria-label="Rating: 5 out of 5 stars">
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-        </span>
-        <p class="recipe-description">
-          Classic chewy chocolate chip cookies with crispy edges and gooey centers — a timeless crowd pleaser.
-        </p>
-      </div>
-    </article>
-
-    <!-- Escalopes de Poulet -->
-    <article class="recipe-card">
-      <div class="card-image-wrap">
-        <img src="images/escalopes-de-poulet-a-la-creme.webp" alt="Escalopes de poulet a la creme">
-        <span class="tag">dinner</span>
-      </div>
-      <div class="card-info">
-        <span class="tag tag-inline">dinner</span>
-        <h2 class="recipe-title">Escalopes de Poulet</h2>
-        <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star-empty">☆</span>
-        </span>
-        <p class="recipe-description">
-          Tender chicken escalopes in a creamy French sauce, pan-fried to golden perfection and served with seasonal vegetables.
-        </p>
-      </div>
-    </article>
-
-    <!-- German Gooseberry Cake -->
-    <article class="recipe-card">
-      <div class="card-image-wrap">
-        <img src="images/german-gooseberry-cake.jpg" alt="German gooseberry cake">
-        <span class="tag">dessert</span>
-      </div>
-      <div class="card-info">
-        <span class="tag tag-inline">dessert</span>
-        <h2 class="recipe-title">German Gooseberry Cake</h2>
-        <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star-empty">☆</span>
-        </span>
-        <p class="recipe-description">
-          A traditional German cake topped with tart gooseberries and a buttery streusel crumble, wonderful with whipped cream.
-        </p>
-      </div>
-    </article>
-
-    <!-- Roasted Potatoes -->
-    <article class="recipe-card">
-      <div class="card-image-wrap">
-        <img src="images/roasted-potatoes.webp" alt="Roasted potatoes">
-        <span class="tag">side dish</span>
-      </div>
-      <div class="card-info">
-        <span class="tag tag-inline">side dish</span>
-        <h2 class="recipe-title">Roasted Potatoes</h2>
-        <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star-empty">☆</span>
-        </span>
-        <p class="recipe-description">
-          Crispy on the outside and fluffy on the inside, these herb-roasted potatoes make the perfect side for any meal.
-        </p>
-      </div>
-    </article>
-
-    <!-- Sweet Potato Waffle -->
-    <article class="recipe-card">
-      <div class="card-image-wrap">
-        <img src="images/sweet-potato-waffle-md.jpg" alt="Sweet potato waffle">
-        <span class="tag">breakfast</span>
-      </div>
-      <div class="card-info">
-        <span class="tag tag-inline">breakfast</span>
-        <h2 class="recipe-title">Sweet Potato Waffle</h2>
-        <span class="rating" role="img" aria-label="Rating: 5 out of 5 stars">
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-        </span>
-        <p class="recipe-description">
-          Fluffy and golden sweet potato waffles with a hint of cinnamon, delicious topped with maple syrup and fresh fruit.
-        </p>
-      </div>
-    </article>
-
-  </main>
-
-  <!-- Footer -->
   <footer>
     <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">
       Recipe icons created by Freepik - Flaticon
     </a>
 
-    <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates -->
     <div class="social">
       <a href="" aria-label="Instagram"><img src="images/instagram_icon.svg" alt="instagram icon"></a>
       <a href="" aria-label="YouTube"><img src="images/youtube_icon.svg" alt="youtube icon"></a>
