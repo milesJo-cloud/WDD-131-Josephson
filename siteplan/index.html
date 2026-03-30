@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="resident_evil_requiem.webp" fetchpriority="high" />
   <style>
 
     :root {
@@ -580,9 +581,9 @@
 <section class="review-hero" aria-label="Featured review">
 
   <div class="hero-bg" id="bg-re" style="background-image:url('resident_evil_requiem.webp'); opacity:1;" role="img" aria-label="Resident Evil Requiem key art"></div>
-  <div class="hero-bg" id="bg-sw" style="background-image:url('star_wars_battlefront_2.avif'); opacity:0;" role="img" aria-label="Star Wars Battlefront 2 key art"></div>
-  <div class="hero-bg" id="bg-co" style="background-image:url('clair_obscur_expedition_33.jpg'); opacity:0;" role="img" aria-label="Clair Obscur Expedition 33 key art"></div>
-  <div class="hero-bg" id="bg-cd" style="background-image:url('crimson_desert.avif'); opacity:0;" role="img" aria-label="Crimson Desert key art"></div>
+  <div class="hero-bg" id="bg-sw" data-bg="star_wars_battlefront_2.avif" style="opacity:0;" role="img" aria-label="Star Wars Battlefront 2 key art"></div>
+  <div class="hero-bg" id="bg-co" data-bg="clair_obscur_expedition_33.jpg" style="opacity:0;" role="img" aria-label="Clair Obscur Expedition 33 key art"></div>
+  <div class="hero-bg" id="bg-cd" data-bg="crimson_desert.avif" style="opacity:0;" role="img" aria-label="Crimson Desert key art"></div>
 
   <div class="hero-content">
     <div class="hero-left">
@@ -918,8 +919,12 @@
       .map(function(key) { return document.getElementById(games[key].bg); })
       .forEach(function(el) { el.style.opacity = '0'; });
 
-    /* Fade in active background */
-    document.getElementById(games[id].bg).style.opacity = '1';
+    /* Fade in active background — lazy-load image on first use */
+    const activeBgEl = document.getElementById(games[id].bg);
+    if (!activeBgEl.style.backgroundImage && activeBgEl.dataset.bg) {
+      activeBgEl.style.backgroundImage = "url('" + activeBgEl.dataset.bg + "')";
+    }
+    activeBgEl.style.opacity = '1';
 
     /* Update score display and stars */
     animateScore(games[id].score);
