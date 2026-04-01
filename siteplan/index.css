@@ -1,7 +1,7 @@
 :root {
       --ink:     #050507;
-      --accent:  #E63946;
-      --gold:    #F0A500;
+      --accent:  #00C8FF;
+      --gold:    #FFD166;
       --green:   #22c55e;
       --dim:     rgba(255,255,255,0.78);
       --dimmer:  rgba(255,255,255,0.60);
@@ -14,8 +14,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
     body {
       font-family: var(--font-body);
       background: var(--ink);
@@ -123,8 +121,8 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      background: rgba(230,57,70,0.15);
-      border: 1px solid rgba(230,57,70,0.3);
+      background: rgba(0,200,255,0.12);
+      border: 1px solid rgba(0,200,255,0.3);
       padding: 0.28rem 0.7rem;
       border-radius: 999px;
       margin-bottom: 0.9rem;
@@ -188,7 +186,7 @@
       margin-top: 1.25rem;
       padding: 0.6rem 1.4rem;
       background: var(--accent);
-      color: #fff;
+      color: #050507;
       font-family: var(--font-ui);
       font-size: 0.78rem;
       font-weight: 700;
@@ -198,7 +196,7 @@
       border-radius: 6px;
       transition: background 0.2s, transform 0.15s;
     }
-    .read-review-btn:hover { background: #c62b37; transform: translateY(-1px); }
+    .read-review-btn:hover { background: #33D4FF; transform: translateY(-1px); }
 
     /* Score panel — horizontal on mobile */
     .score-panel {
@@ -217,8 +215,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: rgba(230,57,70,0.1);
-      box-shadow: 0 0 32px rgba(230,57,70,0.28), inset 0 0 24px rgba(230,57,70,0.05);
+      background: rgba(0,200,255,0.08);
+      box-shadow: 0 0 32px rgba(0,200,255,0.28), inset 0 0 24px rgba(0,200,255,0.05);
       position: relative;
       flex-shrink: 0;
     }
@@ -228,7 +226,7 @@
       position: absolute;
       inset: 5px;
       border-radius: 50%;
-      border: 1px solid rgba(230,57,70,0.2);
+      border: 1px solid rgba(0,200,255,0.2);
     }
 
     .score-number {
@@ -412,8 +410,8 @@
 
     .spoiler-inner {
       padding: 1.25rem;
-      background: rgba(230,57,70,0.04);
-      border: 1px solid rgba(230,57,70,0.15);
+      background: rgba(0,200,255,0.04);
+      border: 1px solid rgba(0,200,255,0.15);
       border-top: none;
       border-radius: 0 0 8px 8px;
       font-size: 0.9rem;
@@ -447,7 +445,7 @@
       font-weight: 700;
       letter-spacing: 0.03em;
       text-transform: uppercase;
-      transition: all 0.22s ease;
+      transition: color 0.22s ease, background 0.22s ease, border-top-color 0.22s ease;
       border-top: 2px solid transparent;
       gap: 0.2rem;
     }
@@ -457,7 +455,7 @@
     .game-tab.active {
       color: #fff;
       border-top-color: var(--accent);
-      background: rgba(230,57,70,0.08);
+      background: rgba(0,200,255,0.07);
     }
 
     .tab-score {
