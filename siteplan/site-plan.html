@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Player One Reviews — honest, in-depth game reviews covering the best titles of 2025 and beyond." />
   <title>Player One Reviews</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="resident_evil_requiem.webp" fetchpriority="high" />
   <link rel="stylesheet" href="site-plan.css" />
 </head>
 <body>
@@ -31,44 +32,18 @@
   </a>
   <ul class="nav-links" role="list">
     <li><a href="index.html">Home</a></li>
-    <li><a href="re_requiem.html">Reviews</a></li>
-    <li><a href="re_requiem.html">About</a></li>
+    <li><a href="re9.html">Reviews</a></li>
+    <li><a href="re9.html">About</a></li>
   </ul>
-  <button id="theme-toggle" type="button" class="theme-btn" aria-label="Switch to light mode">☀ Light</button>
 </nav>
 
 <!-- ══ HERO ══ -->
 <section class="review-hero" aria-label="Featured review">
 
-  <!-- srcset lets the browser pick the best image size for the user's screen -->
-  <div class="hero-bg" id="bg-re" style="opacity:1;" aria-hidden="true">
-    <img src="resident_evil_requiem.webp"
-         srcset="resident_evil_requiem.webp 1200w, resident_evil_requiem.webp 800w"
-         sizes="100vw"
-         alt=""
-         loading="eager">
-  </div>
-  <div class="hero-bg" id="bg-sw" style="opacity:0;" aria-hidden="true">
-    <img src="star_wars_battlefront_2.avif"
-         srcset="star_wars_battlefront_2.avif 1200w, star_wars_battlefront_2.avif 800w"
-         sizes="100vw"
-         alt=""
-         loading="lazy">
-  </div>
-  <div class="hero-bg" id="bg-co" style="opacity:0;" aria-hidden="true">
-    <img src="clair_obscur_expedition_33.jpg"
-         srcset="clair_obscur_expedition_33.jpg 1200w, clair_obscur_expedition_33.jpg 800w"
-         sizes="100vw"
-         alt=""
-         loading="lazy">
-  </div>
-  <div class="hero-bg" id="bg-cd" style="opacity:0;" aria-hidden="true">
-    <img src="crimson_desert.avif"
-         srcset="crimson_desert.avif 1200w, crimson_desert.avif 800w"
-         sizes="100vw"
-         alt=""
-         loading="lazy">
-  </div>
+  <div class="hero-bg" id="bg-re" style="background-image:url('resident_evil_requiem.webp'); opacity:1;" role="img" aria-label="Resident Evil Requiem key art"></div>
+  <div class="hero-bg" id="bg-sw" data-bg="star_wars_battlefront_2.avif" style="opacity:0;" role="img" aria-label="Star Wars Battlefront 2 key art"></div>
+  <div class="hero-bg" id="bg-co" data-bg="clair_obscur_expedition_33.jpg" style="opacity:0;" role="img" aria-label="Clair Obscur Expedition 33 key art"></div>
+  <div class="hero-bg" id="bg-cd" data-bg="crimson_desert.avif" style="opacity:0;" role="img" aria-label="Crimson Desert key art"></div>
 
   <div class="hero-content">
     <div class="hero-left">
@@ -135,7 +110,7 @@
         <span class="score-denom">/ 10</span>
       </div>
       <div class="score-meta">
-        <div class="stars" id="stars-display" aria-label="5 out of 5 stars">★★★★★</div>
+        <div class="stars" id="stars-display">★★★★★</div>
         <div class="score-label" aria-live="polite" id="score-live">Score: 9.5 / 10</div>
       </div>
     </div>
@@ -316,18 +291,6 @@
 
 </main>
 
-<!-- ══ MORE REVIEWS ══
-     Cards are populated by main.js via fetch('reviews.json').
-     Skeleton screens display while the request is in flight. -->
-<section class="more-reviews" aria-labelledby="more-reviews-heading">
-  <div class="more-reviews-inner">
-    <h2 id="more-reviews-heading" class="section-label">More Reviews</h2>
-    <div class="review-cards-grid" id="more-reviews-grid" aria-live="polite" aria-busy="true">
-      <!-- Populated by JS -->
-    </div>
-  </div>
-</section>
-
 <!-- ══ GAME SELECTOR BAR ══ -->
 <div class="game-selector" role="tablist" aria-label="Select a game review">
   <button class="game-tab active" role="tab" aria-selected="true"  data-game="re" aria-label="Resident Evil Requiem, score 9.5">
@@ -351,6 +314,143 @@
 <!-- ══ BACK TO TOP ══ -->
 <button id="back-to-top" aria-label="Back to top of page">↑</button>
 
-<script src="main.js"></script>
+<script>
+  /* ── OBJECT: game metadata ── */
+  const games = {
+    re: { score: 9.5,  stars: '★★★★★', label: 'Must Play',  bg: 'bg-re' },
+    sw: { score: 8.5,  stars: '★★★★☆', label: 'Classic',    bg: 'bg-sw' },
+    co: { score: 10,   stars: '★★★★★', label: 'Masterwork', bg: 'bg-co' },
+    cd: { score: 8.8,  stars: '★★★★½', label: 'Epic',       bg: 'bg-cd' },
+  };
+
+  /* ── ARRAY: game keys derived from the object ── */
+  const gameKeys = Object.keys(games);  /* ['re', 'sw', 'co', 'cd'] */
+
+  /* Track currently active game */
+  let currentGame = 're';
+
+  /* ── DOM REFERENCES (selecting elements) ── */
+  const scoreEl   = document.getElementById('score-display');
+  const starsEl   = document.getElementById('stars-display');
+  const scoreLive = document.getElementById('score-live');
+  const bttBtn    = document.getElementById('back-to-top');
+  const tabs      = Array.from(document.querySelectorAll('.game-tab'));
+
+  function switchGame(id) {
+    /* Conditional branch: bail out if already on this game */
+    if (id === currentGame) return;
+
+    /* Deactivate all tabs — forEach on real Array */
+    tabs.forEach(function(tab) {
+      tab.classList.remove('active');
+      tab.setAttribute('aria-selected', 'false');
+    });
+
+    /* Find and activate the clicked tab */
+    const activeTab = tabs.find(function(tab) {
+      return tab.dataset.game === id;
+    });
+    if (activeTab) {
+      activeTab.classList.add('active');
+      activeTab.setAttribute('aria-selected', 'true');
+    }
+
+    /* Hide all sections — forEach on gameKeys Array */
+    gameKeys.forEach(function(key) {
+      document.getElementById('hero-' + key).classList.remove('active');
+      document.getElementById('body-' + key).classList.remove('active');
+    });
+
+    /* Show the new sections */
+    document.getElementById('hero-' + id).classList.add('active');
+    document.getElementById('body-' + id).classList.add('active');
+
+    /* filter() inactive bg keys, map() to DOM els, forEach to fade out */
+    const inactiveKeys = gameKeys.filter(function(key) { return key !== id; });
+    inactiveKeys
+      .map(function(key) { return document.getElementById(games[key].bg); })
+      .forEach(function(el) { el.style.opacity = '0'; });
+
+    /* Fade in active background — lazy-load image on first use */
+    const activeBgEl = document.getElementById(games[id].bg);
+    if (!activeBgEl.style.backgroundImage && activeBgEl.dataset.bg) {
+      activeBgEl.style.backgroundImage = "url('" + activeBgEl.dataset.bg + "')";
+    }
+    activeBgEl.style.opacity = '1';
+
+    /* Update score display and stars */
+    animateScore(games[id].score);
+    starsEl.textContent = games[id].stars;
+
+    /* Update aria-live region (screen reader announcement) */
+    scoreLive.textContent = 'Score: ' + games[id].score + ' out of 10 — ' + games[id].label;
+
+    currentGame = id;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function animateScore(target) {
+    const end       = parseFloat(target);
+    const start     = parseFloat(scoreEl.textContent);
+    const duration  = 500;
+    const startTime = performance.now();
+
+    function step(now) {
+      const elapsed  = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease     = 1 - Math.pow(1 - progress, 3);
+      const val      = start + (end - start) * ease;
+
+      /* Conditional: show '10' vs decimal */
+      scoreEl.textContent = (val >= 10) ? '10' : val.toFixed(1);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  function toggleSpoiler(btn) {
+    const isOpen = btn.classList.toggle('open');
+
+    /* Conditional: set aria-expanded based on state */
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    btn.nextElementSibling.classList.toggle('open');
+  }
+
+
+  function handleScroll() {
+    /* Conditional branch */
+    if (window.scrollY > 300) {
+      bttBtn.classList.add('visible');
+    } else {
+      bttBtn.classList.remove('visible');
+    }
+  }
+
+  /* Tab click listeners — forEach on tabs Array */
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      switchGame(tab.dataset.game);
+    });
+  });
+
+  /* Spoiler button listeners — forEach on converted NodeList */
+  Array.from(document.querySelectorAll('.spoiler-btn')).forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      toggleSpoiler(btn);
+    });
+  });
+
+  /* Scroll listener */
+  window.addEventListener('scroll', handleScroll);
+
+  /* Back-to-top click */
+  bttBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>
