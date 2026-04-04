@@ -1,0 +1,48 @@
+{
+  "reviews": [
+    {
+      "id": "elden-ring",
+      "title": "Elden Ring",
+      "genre": "Action RPG",
+      "platform": "PC / PS5 / Xbox",
+      "score": 9.8,
+      "stars": "★★★★★",
+      "label": "Masterwork",
+      "year": 2022,
+      "verdict": "The open-world FromSouls experience we never knew we needed — and now can't imagine being without."
+    },
+    {
+      "id": "baldurs-gate-3",
+      "title": "Baldur's Gate 3",
+      "genre": "RPG",
+      "platform": "PC / PS5",
+      "score": 10,
+      "stars": "★★★★★",
+      "label": "Legendary",
+      "year": 2023,
+      "verdict": "A once-in-a-decade RPG that redefines player agency and sets a new bar for the entire genre."
+    },
+    {
+      "id": "hades-2",
+      "title": "Hades II",
+      "genre": "Roguelike",
+      "platform": "PC",
+      "score": 9.2,
+      "stars": "★★★★★",
+      "label": "Must Play",
+      "year": 2024,
+      "verdict": "Supergiant somehow improved on a perfect formula. The goddess of the underworld is an icon."
+    },
+    {
+      "id": "astro-bot",
+      "title": "Astro Bot",
+      "genre": "3D Platformer",
+      "platform": "PS5",
+      "score": 9.7,
+      "stars": "★★★★★",
+      "label": "Masterwork",
+      "year": 2024,
+      "verdict": "Pure, distilled joy — a love letter to PlayStation history wrapped in perfect platforming design."
+    }
+  ]
+}
